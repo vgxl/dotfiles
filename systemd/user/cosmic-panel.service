@@ -1,0 +1,13 @@
+[Unit]
+Description=cosmic panel
+PartOf=graphical-session.target
+After=graphical-session.target
+Requisite=graphical-session.target
+
+[Service]
+ExecStart=/sbin/cosmic-panel
+ExecReload=kill -SIGUSR2 $MAINPID
+Restart=on-failure
+
+[Install]
+WantedBy=graphical-session.target
